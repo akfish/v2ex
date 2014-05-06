@@ -1,6 +1,7 @@
 {% include 'common/head.html' %}
 <script type="text/javascript" src="/static/js/marked.js"></script>
 <script type="text/javascript">
+
   $(document).ready(function() {
     marked.setOptions({
       renderer: new marked.Renderer(),
@@ -18,6 +19,9 @@
     var md = $(".topic_content").text();
     var html = marked(md);
     $(".topic_content").html(html);
+    $(".reply_content").each(function(i, ui) { 
+      $(ui).html(marked($(ui).text()));
+    });
   });
 </script>
 <script type="text/javascript">
