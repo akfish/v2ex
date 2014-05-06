@@ -10,7 +10,10 @@
       pedantic: false,
       sanitize: true,
       smartLists: true,
-      smartypants: false
+      smartypants: false,
+      highlight: function (code) {
+        return hljs.highlightAuto(code).value;
+      }
     });
     var md = $(".topic_content").text();
     var html = marked(md);
