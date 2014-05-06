@@ -1,4 +1,22 @@
 {% include 'common/head.html' %}
+<script type="text/javascript" src="/static/js/marked.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    marked.setOptions({
+      renderer: new marked.Renderer(),
+      gfm: true,
+      tables: true,
+      breaks: false,
+      pedantic: false,
+      sanitize: true,
+      smartLists: true,
+      smartypants: false
+    });
+    var md = $(".topic_content").text();
+    var html = marked(md);
+    $(".topic_content").html(html);
+  });
+</script>
 <script type="text/javascript">
 	// reply a reply
 	function replyOne(username){
